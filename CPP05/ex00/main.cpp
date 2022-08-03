@@ -39,4 +39,31 @@ int	main() {
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
 
+	std::cout << "TEST 4" << "*******************************************" << std::endl;
+	try
+	{
+		Bureaucrat caseFour = Bureaucrat("increment case", 2);
+		std::cout << caseFour;
+		caseFour.incrementGrade();
+		std::cout << caseFour;
+		caseFour.incrementGrade();
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
+
+	std::cout << "TEST 5" << "*******************************************" << std::endl;
+	try
+	{
+		Bureaucrat caseFive= Bureaucrat("decrement case", 149);
+		std::cout <<caseFive;
+		caseFive.decrementGrade();
+		std::cout <<caseFive;
+		caseFive.decrementGrade();
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
 }

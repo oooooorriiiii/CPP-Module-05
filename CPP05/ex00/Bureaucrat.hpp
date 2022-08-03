@@ -18,6 +18,8 @@ public:
 	const std::string&	getName() const;
 	unsigned int		getGrade() const;
 
+	void incrementGrade();
+	void decrementGrade();
 
 class GradeTooHighException : public std::exception{
 public:
@@ -39,6 +41,7 @@ public:
 private:
 	std::string _errorMessage;
 };
+
 
 private:
 	const std::string 	_name;
