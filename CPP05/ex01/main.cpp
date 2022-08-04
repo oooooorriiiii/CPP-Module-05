@@ -3,14 +3,18 @@
 //
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main() {
 
 	std::cout << "TEST 1" << "*******************************************" << std::endl;
 	try
 	{
-		Bureaucrat caseOne("error case 1", 0);
+		Bureaucrat	caseOne("ERROR CASE 1 officer", 42);
+		Form		formOne("Raise my salary", 24, 24);
 		std::cout << caseOne;
+		std::cout << formOne;
+		caseOne.signForm(formOne);
 	}
 	catch (std::exception & e)
 	{
@@ -20,8 +24,11 @@ int	main() {
 	std::cout << "TEST 2" << "*******************************************" << std::endl;
 	try
 	{
-		Bureaucrat caseTwo = Bureaucrat("error case 2", 1000);
+		Bureaucrat	caseTwo = Bureaucrat("NORMAL CASE 1 officer", 42);
+		Form 		formTwo = Form("Remove the minister's wig", 100, 1);
 		std::cout << caseTwo;
+		std::cout << formTwo;
+		caseTwo.signForm(formTwo);
 	}
 	catch (std::exception & e)
 	{
@@ -31,39 +38,19 @@ int	main() {
 	std::cout << "TEST 3" << "*******************************************" << std::endl;
 	try
 	{
-		Bureaucrat caseThree = Bureaucrat("normal case 1", 42);
+		Bureaucrat	caseThree = Bureaucrat("NORMAL CASE 2 officer", 42);
+		Form		formThree = Form("Install houseplants in the workplace", 40, 40);
 		std::cout << caseThree;
+		std::cout << formThree;
+		caseThree.incrementGrade();
+		caseThree.incrementGrade();
+		std::cout << "Wait until " << caseThree.getName() << " get promoted..." << std::endl;
+		std::cout << caseThree;
+		caseThree.signForm(formThree);
 	}
 	catch (std::exception & e)
 	{
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
 
-	std::cout << "TEST 4" << "*******************************************" << std::endl;
-	try
-	{
-		Bureaucrat caseFour = Bureaucrat("increment case", 2);
-		std::cout << caseFour;
-		caseFour.incrementGrade();
-		std::cout << caseFour;
-		caseFour.incrementGrade();
-	}
-	catch (std::exception & e)
-	{
-		std::cerr << "Error: " << e.what() << std::endl;
-	}
-
-	std::cout << "TEST 5" << "*******************************************" << std::endl;
-	try
-	{
-		Bureaucrat caseFive= Bureaucrat("decrement case", 149);
-		std::cout <<caseFive;
-		caseFive.decrementGrade();
-		std::cout <<caseFive;
-		caseFive.decrementGrade();
-	}
-	catch (std::exception & e)
-	{
-		std::cerr << "Error: " << e.what() << std::endl;
-	}
 }

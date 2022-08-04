@@ -9,14 +9,13 @@ Bureaucrat::Bureaucrat() : _name("no"), _grade(150) {
 }
 
 // Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(std::move(name)) C++11
-Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name) {
+Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name), _grade(grade) {
 	std::cout << "Constructor is called in Bureaucrat" << std::endl;
 	if (grade > 150) {
 		throw GradeTooLowException();
 	} else if (grade < 1) {
 		throw GradeTooHighException();
 	}
-	_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat) {
@@ -29,8 +28,8 @@ Bureaucrat::~Bureaucrat() {
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &bureaucrat) {
-	const_cast<std::string&>(_name) = bureaucrat._name;
-	_grade = bureaucrat._grade;
+	const_cast<std::string&>(_name) = bureaucrat.getName();
+	_grade = bureaucrat.getGrade();
 	return *this;
 }
 
@@ -54,6 +53,19 @@ void 	Bureaucrat::decrementGrade() {
 	if (_grade + 1 > 150)
 		throw GradeTooLowException();
 	_grade++;
+}
+
+void	Bureaucrat::signForm(Form &form) const {
+	try
+	{
+		form.beSighed(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << "." << std::endl;
+	}
+
 }
 
 
