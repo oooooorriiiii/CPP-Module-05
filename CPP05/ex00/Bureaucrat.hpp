@@ -35,7 +35,7 @@ private:
 class GradeTooLowException : public std::exception {
 public:
 	GradeTooLowException();
-	virtual ~GradeTooLowException();
+	virtual ~GradeTooLowException() throw();
 	virtual const char* what() const throw();
 
 private:
@@ -45,7 +45,7 @@ private:
 
 private:
 	const std::string 	_name;
-	unsigned int		_grade{};
+	unsigned int		_grade;
 };
 
 std::ostream& operator<<(std::ostream& ostream, const Bureaucrat& bureaucrat);

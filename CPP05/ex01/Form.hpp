@@ -31,7 +31,7 @@ public:
 class GradeTooHighException : public std::exception {
 public:
 	GradeTooHighException();
-	virtual ~GradeTooHighException();
+	virtual ~GradeTooHighException() throw();
 	virtual const char* what() const throw();
 
 private:
@@ -41,7 +41,7 @@ private:
 class GradeTooLowException : public std::exception {
 public:
 	GradeTooLowException();
-	virtual ~GradeTooLowException();
+	virtual ~GradeTooLowException() throw();
 	virtual const char* what() const throw();
 private:
 	std::string _errorMessage;
