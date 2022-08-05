@@ -1,0 +1,71 @@
+//
+// Created by yuumo on 2022/08/05.
+//
+
+#include <fstream>
+
+#include "ShrubberyCreationForm.hpp"
+
+ShrubberyCreationForm::ShrubberyCreationForm() {
+	std::cout << "Default constructor is called in ShrubberyCreationForm" << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : Form(
+		target + "_form", kGradeRequiredToSign, kGradeRequiredToExecute),
+																		  _target(target +
+																				  "_shrubbery") {
+	std::cout << "Constructor is called in ShrubberyCreationForm" << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &scf) : Form(scf) {
+	std::cout << "Copy constructor is called in ShrubberyCreationForm" << std::endl;
+	*this = scf;
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &scf) {
+	Form::operator=(scf);
+	_target = scf._target;
+	return *this;
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm() {
+	std::cout << "Destructor is called in ShrubberyCreationForm" << std::endl;
+}
+
+void	ShrubberyCreationForm::execute(const Bureaucrat &exec) const {
+
+	Form::execute(exec);
+
+	std::cout << "EXECUTE!!!" << std::endl;
+
+	std::ofstream ofs(_target.c_str());
+	// TODO: file open error
+	ofs			<< "============================##=========####=#############>##>>#>>>>#>>>>>>>>>>>>" << std::endl
+				<< "=#=##=##=##########################################>#>#>>#>>#>>>>>>>>>>>>>>>>>>>" << std::endl
+				<< "##################################>#########>#>>#>>>>>>>>>>>>>>>>>>>>>>>>>>;>;;;" << std::endl
+				<< "#########>##>#>#>#>>#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>;;;;;;;;;;;;;;" << std::endl
+				<< ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>;>>;;;;;;;;;;;;;;;;;;;;;:" << std::endl
+				<< ";;>;;>;;>>;>>>>;;>;>>;;>;;>;;>;;>>;;+++JOz1+<<;;;;;;;;;;;;;;;;;;;:;;;;:::::;::::" << std::endl
+				<< ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;+&zwOUdkwwXOZI=++&Oz<;;;::;:;:::::::::::::::::::" << std::endl
+				<< ";;;;;;;;;;;;:;::;::;::;:;:;:;:+udHSzywHwzOZAwUX0wVOO+<::::::::::::::::::::::::::" << std::endl
+				<< "::::::::::::::::::::::::::::<+AHXkZZzOWkXXXWSWRAWXZww1<<::::::::::::::~::::~::~:" << std::endl
+				<< "::::~::~::~:::::::::::::::+uAkgHHHWWsdWWKHkwAHHWHSZZXkZv::~:~~~~~~~~~~:~~~~~~~:~" << std::endl
+				<< "~~~~~~~:~~~~~~~~~~~~~~(0wdRAdMM@HkmWXHWHHHNmXWkHXXXwllwz+~~~:~:~~:~~~~~~~~:~~~~~" << std::endl
+				<< "~~~~~~~~~~~~~~~~~~~~~~~dHHHHM@HHHMHXXWHS0XwWWWXWpUSwXwwI<_~~~~~~~~~~~~~~~~~~~~~~" << std::endl
+				<< "~~~~~~~~~~~~~~~~~~~~((gHHWWwHWHWSWWWdSZwkUOVwwZwUWkXXSXI>~~~~~~~~~~~~~~~~~~~~~~~" << std::endl
+				<< "~~~~~~~~~~~~~~~.~~~_XHMNHS0S0XQHMHHmHHHXXkOOZwwXkzXXXXOO+(((-__~~~~~~~~~~.~.~..~" << std::endl
+				<< "...~.............-ddWNMMNkXMHkHHMHHWH@HmHkwWkZUUUwdkWXXWwIjwXo_................." << std::endl
+				<< "................_dkHHHHMHMNHWHHMMMM@MMHHHHHkwXwwyZOZWkZUSyXZwl+-................" << std::endl
+				<< "..................dHH@H@MHkWWWMMMMMMHHHMmHkwkXXkXWwOwXWk0VO1OZI!...`..`..`......" << std::endl
+				<< "..........`..`.. #MHHHpH#HHHMHMMH@MkWHWHMmAwkkXWHkOvAOVUXZwk+-~`````````````````" << std::endl
+				<< "`````````````````.C7WUjwHMHMMHHMMMMNHHHQHHHkHHWHHWXZXXQKkkXv!```````````````````" << std::endl
+				<< "```````````````````` (zMYHMHMHMMXHMMMAqMmHHHMM9HHXdWkXfXWSC~````````````````````" << std::endl
+				<< "`..`.```````````````` !!_`=`  ! (C#THNHMNMMb..(HSOdY<jXUZOv ```` ` ` ```````````" << std::endl
+				<< "``````.`````````````````````````````#7`MM``````#~/6~#<!!#!``````````````````````" << std::endl
+				<< ".``.``````````````````````````` ```````dM}`` `````` ` ``````` `` ```````````````" << std::endl
+				<< "......-......_-...-....__.-.....-.-..-(MMl.-...-----.----(..((-(---(((((-((((JJJ" << std::endl
+				<< "TYYYYYYUYYYYYYYYUYYYYYY9YYYVYYYUYYYUTTCCzzzvvvC1zzv1z1<111+<<<<<11++=zIlzOvOOOOO" << std::endl
+				<< "####+1++++++++++#<++#1###<+<<<>;>>;++++;><<>;<<<<+<++++<<#1>+++<z+11#><#1###11##" << std::endl
+				<< "<<>+<<<;>#++z#1z1+++<+++#zz#11z111z+1##1=#1zzz#z+J1zz=z1z++z1zz+1<>##>>#+###+1<#" << std::endl;
+	ofs.close();
+}
