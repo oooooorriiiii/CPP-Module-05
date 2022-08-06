@@ -36,6 +36,15 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 	std::cout << "Destructor is called in ShrubberyCreationForm" << std::endl;
 }
 
+
+/*
+ * Member functions
+ */
+
+/**
+ * Create a file <target>_shrubbery in the working directory, and writes ASCII trees inside it.
+ * @param exec
+ */
 void ShrubberyCreationForm::execute(
 		const Bureaucrat &exec) const throw(class Form::GradeTooLowException, class Form::GradeTooHighException, class Form::NotSignedException) {
 

@@ -12,8 +12,7 @@ RobotomyRequestForm::RobotomyRequestForm() {
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : Form(
 		target + "_form", kGradeRequiredToSign, kGradeRequiredToExecute),
-																	  _target(target +
-																			  "_shrubbery") {
+																	  _target(target) {
 	std::cout << "Constructor is called in RobotomyRequestForm" << std::endl;
 }
 
@@ -34,6 +33,10 @@ RobotomyRequestForm::operator=(const RobotomyRequestForm &rrf) {
 RobotomyRequestForm::~RobotomyRequestForm() {
 	std::cout << "Destructor is called in RobotomyRequestForm" << std::endl;
 }
+
+/*
+ * Member functions
+ */
 
 /**
  * Makes some drilling noises. Then, informs that <target> has been robotomized successfully 50% of the time. Otherwise, informs that the robotomy failed.
