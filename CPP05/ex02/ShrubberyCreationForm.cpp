@@ -7,7 +7,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() {
-	std::cout << "Default constructor is called in ShrubberyCreationForm"
+	std::cout << "<Default constructor is called in ShrubberyCreationForm>"
 			  << std::endl;
 }
 
@@ -15,12 +15,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : Form(
 		target + "_form", kGradeRequiredToSign, kGradeRequiredToExecute),
 																		  _target(target +
 																				  "_shrubbery") {
-	std::cout << "Constructor is called in ShrubberyCreationForm" << std::endl;
+	std::cout << "<Constructor is called in ShrubberyCreationForm>" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &scf)
 		: Form(scf) {
-	std::cout << "Copy constructor is called in ShrubberyCreationForm"
+	std::cout << "<Copy constructor is called in ShrubberyCreationForm>"
 			  << std::endl;
 	*this = scf;
 }
@@ -33,7 +33,7 @@ ShrubberyCreationForm::operator=(const ShrubberyCreationForm &scf) {
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << "Destructor is called in ShrubberyCreationForm" << std::endl;
+	std::cout << "<Destructor is called in ShrubberyCreationForm>" << std::endl;
 }
 
 
@@ -119,7 +119,7 @@ void ShrubberyCreationForm::execute(
  */
 
 ShrubberyCreationForm::OpenFileErrorException::OpenFileErrorException() : _errorMessage("File open error.") {
-	std::cout << "Default constructor is called in OpenFileErrorException in ShrubberyCreationForm"
+	std::cout << "<Default constructor is called in OpenFileErrorException in ShrubberyCreationForm>"
 			  << std::endl;
 }
 

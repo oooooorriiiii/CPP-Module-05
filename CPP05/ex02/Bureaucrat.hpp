@@ -31,7 +31,14 @@ public:
 
 	void decrementGrade();
 
+
+	/*
+	 * Member functions
+	 */
+
 	void signForm(Form &form) const;
+
+	void executeForm(Form const & form) const;
 
 
 	/*

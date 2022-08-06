@@ -5,19 +5,19 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() {
-	std::cout << "Default constructor is called in PresidentialPardonForm"
+	std::cout << "<Default constructor is called in PresidentialPardonForm>"
 			  << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : Form(
 		target + "_form", kGradeRequiredToSign, kGradeRequiredToExecute),
 																	  _target(target) {
-	std::cout << "Constructor is called in PresidentialPardonForm" << std::endl;
+	std::cout << "<Constructor is called in PresidentialPardonForm>" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &ppf) : Form(
 		ppf) {
-	std::cout << "Copy constructor is called in PresidentialPardonForm"
+	std::cout << "<Copy constructor is called in PresidentialPardonForm>"
 			  << std::endl;
 	*this = ppf;
 }
@@ -30,7 +30,7 @@ PresidentialPardonForm::operator=(const PresidentialPardonForm &ppf) {
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {
-	std::cout << "Destructor is called in PresidentialPardonForm" << std::endl;
+	std::cout << "<Destructor is called in PresidentialPardonForm>" << std::endl;
 }
 
 

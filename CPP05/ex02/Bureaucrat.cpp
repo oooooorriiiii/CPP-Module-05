@@ -5,13 +5,13 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("no"), _grade(150) {
-	std::cout << "Default constructor is called in Bureaucrat" << std::endl;
+	std::cout << "<Default constructor is called in Bureaucrat>" << std::endl;
 }
 
 // Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(std::move(name)) C++11
 Bureaucrat::Bureaucrat(const std::string &name, unsigned int grade) : _name(
 		name), _grade(grade) {
-	std::cout << "Constructor is called in Bureaucrat" << std::endl;
+	std::cout << "<Constructor is called in Bureaucrat>" << std::endl;
 	if (grade > 150)
 	{
 		throw GradeTooLowException();
@@ -22,12 +22,12 @@ Bureaucrat::Bureaucrat(const std::string &name, unsigned int grade) : _name(
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat) : _grade() {
-	std::cout << "Copy constructor is called in Bureaucrat" << std::endl;
+	std::cout << "<Copy constructor is called in Bureaucrat>" << std::endl;
 	*this = bureaucrat;
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Destructor is called in Bureaucrat" << std::endl;
+	std::cout << "<Destructor is called in Bureaucrat>" << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat) {
@@ -68,7 +68,10 @@ void Bureaucrat::signForm(Form &form) const {
 		std::cout << _name << " couldn't sign " << form.getName() << " because "
 				  << e.what() << "." << std::endl;
 	}
+}
 
+void Bureaucrat::executeForm(const Form &form) const {
+	form.execute(*this);
 }
 
 
@@ -79,12 +82,12 @@ void Bureaucrat::signForm(Form &form) const {
 Bureaucrat::GradeTooHighException::GradeTooHighException() : _errorMessage(
 		"Grade is too high") {
 	std::cout
-			<< "Default constructor is called in GradeTooHighException in Bureaucrat"
+			<< "<Default constructor is called in GradeTooHighException in Bureaucrat>"
 			<< std::endl;
 }
 
 Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {
-	std::cout << "Destructor is called in GradeTooHighException in Bureaucrat"
+	std::cout << "<Destructor is called in GradeTooHighException in Bureaucrat>"
 			  << std::endl;
 }
 
@@ -100,12 +103,12 @@ const char *Bureaucrat::GradeTooHighException::what() const throw() {
 Bureaucrat::GradeTooLowException::GradeTooLowException() : _errorMessage(
 		"Grade is too low") {
 	std::cout
-			<< "Default constructor is called in GradeTooLowException in Bureaucrat"
+			<< "<Default constructor is called in GradeTooLowException in Bureaucrat>"
 			<< std::endl;
 }
 
 Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {
-	std::cout << "Destructor is called in GradeTooLowException in Bureaucrat"
+	std::cout << "<Destructor is called in GradeTooLowException in Bureaucrat>"
 			  << std::endl;
 }
 
@@ -121,12 +124,12 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
 Bureaucrat::NotSignedException::NotSignedException() : _errorMessage(
 		"Form is not signed") {
 	std::cout
-			<< "Default constructor is called in NotSignedException in Bureaucrat"
+			<< "<Default constructor is called in NotSignedException in Bureaucrat>"
 			<< std::endl;
 }
 
 Bureaucrat::NotSignedException::~NotSignedException() throw() {
-	std::cout << "Destructor is called in NotSignedException in Bureaucrat"
+	std::cout << "<Destructor is called in NotSignedException in Bureaucrat>"
 			  << std::endl;
 }
 
