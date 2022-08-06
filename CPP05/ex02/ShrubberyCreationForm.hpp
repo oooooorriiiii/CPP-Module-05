@@ -25,8 +25,16 @@ public:
 	static const int kGradeRequiredToSign = 145;
 	static const int kGradeRequiredToExecute = 137;
 
-//	TODO: open error handle
-//	class OpenFileErrorException
+
+class OpenFileErrorException : public std::exception {
+public:
+	OpenFileErrorException();
+	virtual ~OpenFileErrorException() throw();
+	virtual const char* what() const throw();
+
+private:
+	std::string _errorMessage;
+};
 
 private:
 	std::string _target;

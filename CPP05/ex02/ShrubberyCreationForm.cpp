@@ -53,9 +53,8 @@ void ShrubberyCreationForm::execute(
 	std::cout << "EXECUTE!!!" << std::endl;
 
 	std::ofstream ofs(_target.c_str());
-//	TODO:: open file handle
-//	if (!ofs.is_open())
-//		throw ShrubberyCreationForm::
+	if (!ofs.is_open())
+		throw ShrubberyCreationForm::OpenFileErrorException();
 	ofs
 			<< "============================##=========####=#############>##>>#>>>>#>>>>>>>>>>>>"
 			<< std::endl
@@ -112,4 +111,20 @@ void ShrubberyCreationForm::execute(
 			<< "<<>+<<<;>#++z#1z1+++<+++#zz#11z111z+1##1=#1zzz#z+J1zz=z1z++z1zz+1<>##>>#+###+1<#"
 			<< std::endl;
 	ofs.close();
+}
+
+
+/*
+ * OpenFileErrorException
+ */
+
+ShrubberyCreationForm::OpenFileErrorException::OpenFileErrorException() : _errorMessage("File open error.") {
+	std::cout << "Default constructor is called in OpenFileErrorException in ShrubberyCreationForm"
+			  << std::endl;
+}
+
+ShrubberyCreationForm::OpenFileErrorException::~OpenFileErrorException() throw() {}
+
+const char* ShrubberyCreationForm::OpenFileErrorException::what() const throw() {
+	return _errorMessage.c_str();
 }
