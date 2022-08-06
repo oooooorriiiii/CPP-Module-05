@@ -12,9 +12,14 @@ class Bureaucrat;
 class Form {
 public:
 	Form();
-	Form(std::string name, unsigned int signGrade, unsigned int executeGrade);
+
+	Form(const std::string &name, unsigned int signGrade,
+		 unsigned int executeGrade);
+
 	Form(const Form &form);
+
 	Form &operator=(const Form &form);
+
 	virtual ~Form();
 
 
@@ -23,8 +28,11 @@ public:
 	 */
 
 	const std::string &getName() const;
+
 	bool getSigned() const;
+
 	unsigned int getSignGrade() const;
+
 	unsigned int getExecuteGrade() const;
 
 
@@ -33,7 +41,9 @@ public:
 	 */
 
 	void beSighed(const Bureaucrat &bureaucrat);
-	void execute(Bureaucrat const & executor) const;
+
+	virtual void
+	execute(Bureaucrat const &executor) const throw(Form::GradeTooLowException, Form::GradeTooHighException, Form::NotSignedException);
 
 
 	/*
@@ -43,7 +53,9 @@ public:
 	class GradeTooHighException : public std::exception {
 	public:
 		GradeTooHighException();
+
 		virtual ~GradeTooHighException() throw();
+
 		virtual const char *what() const throw();
 
 	private:
@@ -53,7 +65,9 @@ public:
 	class GradeTooLowException : public std::exception {
 	public:
 		GradeTooLowException();
+
 		virtual ~GradeTooLowException() throw();
+
 		virtual const char *what() const throw();
 
 	private:
@@ -68,8 +82,10 @@ public:
 	class NotSignedException : public std::exception {
 	public:
 		NotSignedException();
+
 		virtual ~NotSignedException() throw();
-		virtual const char* what() const throw();
+
+		virtual const char *what() const throw();
 
 	private:
 		std::string _errorMessage;

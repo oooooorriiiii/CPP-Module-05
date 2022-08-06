@@ -10,15 +10,23 @@
 class ShrubberyCreationForm : public Form {
 public:
 	ShrubberyCreationForm();
-	ShrubberyCreationForm(const std::string& target);
-	ShrubberyCreationForm(const ShrubberyCreationForm& scf);
-	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& scf);
+
+	ShrubberyCreationForm(const std::string &target);
+
+	ShrubberyCreationForm(const ShrubberyCreationForm &scf);
+
+	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &scf);
+
 	virtual ~ShrubberyCreationForm();
 
-	void	execute(Bureaucrat const & executor) const ;
+	void
+	execute(Bureaucrat const &executor) const throw(class Form::GradeTooLowException, class Form::GradeTooHighException, class Form::NotSignedException);
 
-	static const int 	kGradeRequiredToSign = 145;
-	static const int 	kGradeRequiredToExecute = 137;
+	static const int kGradeRequiredToSign = 145;
+	static const int kGradeRequiredToExecute = 137;
+
+//	TODO: open error handle
+//	class OpenFileErrorException
 
 private:
 	std::string _target;

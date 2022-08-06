@@ -6,7 +6,8 @@ NAME	:=	ex02_out
 SRCS	:=	main.cpp \
 			Bureaucrat.cpp \
 			Form.cpp \
-			ShrubberyCreationForm.cpp
+			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp
 
 OBJS	:=	$(SRCS:.cpp=.o)
 
