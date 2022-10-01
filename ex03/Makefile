@@ -1,7 +1,7 @@
 CXX			:=	c++
 CXXFLAGS	:=	-Wall -Werror -Wextra -std=c++98
 
-NAME	:=	ex03_out
+NAME	:=	ex03.out
 
 SRCS	:=	main.cpp \
 			Bureaucrat.cpp \
@@ -11,11 +11,11 @@ SRCS	:=	main.cpp \
 			PresidentialPardonForm.cpp \
 			Intern.cpp
 
-OBJS	:=	$(SRCS:.cpp=.o)
+OBJS	:=	$(SRCS:%.cpp=%.o)
 
 .PHONY:	all clean fclean re
 
-.o: .cpp
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
