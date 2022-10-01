@@ -8,37 +8,35 @@
 #include "Form.hpp"
 
 class ShrubberyCreationForm : public Form {
-public:
-	ShrubberyCreationForm();
+ public:
+  ShrubberyCreationForm();
 
-	ShrubberyCreationForm(const std::string &target);
+  ShrubberyCreationForm(const std::string &target);
 
-	ShrubberyCreationForm(const ShrubberyCreationForm &scf);
+  ShrubberyCreationForm(const ShrubberyCreationForm &scf);
 
-	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &scf);
+  ShrubberyCreationForm &operator=(const ShrubberyCreationForm &scf);
 
-	virtual ~ShrubberyCreationForm();
+  virtual ~ShrubberyCreationForm();
 
-	void
-	execute(Bureaucrat const &executor) const throw(class Form::GradeTooLowException, class Form::GradeTooHighException, class Form::NotSignedException);
+  void
+  execute(Bureaucrat const &executor) const throw(class Form::GradeTooLowException, class Form::GradeTooHighException, class Form::NotSignedException);
 
-	static const int kGradeRequiredToSign = 145;
-	static const int kGradeRequiredToExecute = 137;
+  static const int kGradeRequiredToSign = 145;
+  static const int kGradeRequiredToExecute = 137;
 
+  class OpenFileErrorException : public std::exception {
+   public:
+    OpenFileErrorException();
+    virtual ~OpenFileErrorException() throw();
+    virtual const char *what() const throw();
 
-class OpenFileErrorException : public std::exception {
-public:
-	OpenFileErrorException();
-	virtual ~OpenFileErrorException() throw();
-	virtual const char* what() const throw();
+   private:
+    std::string _errorMessage;
+  };
 
-private:
-	std::string _errorMessage;
+ private:
+  std::string _target;
 };
-
-private:
-	std::string _target;
-};
-
 
 #endif //EX03_SHRUBBERYCREATIONFORM_HPP

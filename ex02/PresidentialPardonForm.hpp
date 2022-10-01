@@ -8,30 +8,28 @@
 #include "Form.hpp"
 
 class PresidentialPardonForm : public Form {
-public:
-	PresidentialPardonForm();
-	PresidentialPardonForm(const std::string& target);
-	PresidentialPardonForm(const PresidentialPardonForm& ppf);
-	PresidentialPardonForm& operator=(const PresidentialPardonForm& ppf);
-	~PresidentialPardonForm();
+ public:
+  PresidentialPardonForm();
+  PresidentialPardonForm(const std::string &target);
+  PresidentialPardonForm(const PresidentialPardonForm &ppf);
+  PresidentialPardonForm &operator=(const PresidentialPardonForm &ppf);
+  ~PresidentialPardonForm();
 
+  /*
+   *
+   */
 
-	/*
-	 *
-	 */
+  static const int kGradeRequiredToSign = 25;
+  static const int kGradeRequiredToExecute = 5;
 
-	static const int kGradeRequiredToSign = 25;
-	static const int kGradeRequiredToExecute = 5;
+  /*
+   * Member functions
+   */
 
-	/*
-	 * Member functions
-	 */
+  void execute(const Bureaucrat &executor) const throw(Form::GradeTooLowException, Form::GradeTooHighException, Form::NotSignedException);
 
-	void execute(const Bureaucrat &executor) const throw(Form::GradeTooLowException, Form::GradeTooHighException, Form::NotSignedException) ;
-
-private:
-	std::string _target;
+ private:
+  std::string _target;
 };
-
 
 #endif //EX02_PRESIDENTIALPARDONFORM_HPP
