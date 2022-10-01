@@ -14,21 +14,14 @@ class Form;
 class Bureaucrat {
 public:
 	Bureaucrat();
-
 	Bureaucrat(const std::string &name, unsigned int grade);
-
 	Bureaucrat(const Bureaucrat &bureaucrat);
-
 	Bureaucrat &operator=(const Bureaucrat &bureaucrat);
-
 	virtual ~Bureaucrat();
 
 	const std::string &getName() const;
-
 	unsigned int getGrade() const;
-
 	void incrementGrade();
-
 	void decrementGrade();
 
 
@@ -37,7 +30,6 @@ public:
 	 */
 
 	void signForm(Form &form) const;
-
 	void executeForm(Form const & form) const;
 
 
@@ -48,9 +40,7 @@ public:
 	class GradeTooHighException : public std::exception {
 	public:
 		GradeTooHighException();
-
 		virtual ~GradeTooHighException() throw();
-
 //	const char* what() const noexcept override; C++11
 		virtual const char *what() const throw();
 
@@ -61,9 +51,7 @@ public:
 	class GradeTooLowException : public std::exception {
 	public:
 		GradeTooLowException();
-
 		virtual ~GradeTooLowException() throw();
-
 		virtual const char *what() const throw();
 
 	private:
@@ -78,9 +66,7 @@ public:
 	class NotSignedException : public std::exception {
 	public:
 		NotSignedException();
-
 		virtual ~NotSignedException() throw();
-
 		virtual const char *what() const throw();
 
 	private:
