@@ -12,11 +12,9 @@ class Bureaucrat;
 class Form {
 public:
 	Form();
-	Form(std::string& name, unsigned int signGrade, unsigned int executeGrade);
+    Form(const std::string &name, unsigned int signGrade, unsigned int executeGrade);
 	Form(const Form& form);
 
-	Form(const std::string &name, unsigned int signGrade,
-		 unsigned int executeGrade);
 
 	Form& operator=(const Form& form);
 	virtual ~Form();
@@ -27,6 +25,9 @@ public:
 	unsigned int		getExecuteGrade() const;
 
 	void beSighed(const Bureaucrat& bureaucrat);
+
+    static const unsigned int khighestGrade = 1;
+    static const unsigned int klowestGrade = 150;
 
 class GradeTooHighException : public std::exception {
 public:
