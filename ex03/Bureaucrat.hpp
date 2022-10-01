@@ -7,6 +7,10 @@
 
 #include <iostream>
 
+#include "Form.hpp"
+
+class Form;
+
 class Bureaucrat {
  public:
   Bureaucrat();
@@ -24,6 +28,17 @@ class Bureaucrat {
   static const unsigned int khighestGrade = 1;
   static const unsigned int klowestGrade = 150;
 
+  /*
+   * Member functions
+   */
+
+  void signForm(Form &form) const;
+  void executeForm(Form const &form) const;
+
+  /*
+   * Grade Exception
+   */
+
   class GradeTooHighException : public std::exception {
    public:
     GradeTooHighException();
@@ -39,6 +54,20 @@ class Bureaucrat {
    public:
     GradeTooLowException();
     virtual ~GradeTooLowException() throw();
+    virtual const char *what() const throw();
+
+   private:
+    std::string _errorMessage;
+  };
+
+/*
+ * Other exception
+ */
+
+  class NotSignedException : public std::exception {
+   public:
+    NotSignedException();
+    virtual ~NotSignedException() throw();
     virtual const char *what() const throw();
 
    private:
