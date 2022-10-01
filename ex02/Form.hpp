@@ -2,8 +2,8 @@
 // Created by yuumo on 2022/08/03.
 //
 
-#ifndef EX01_FORM_HPP
-#define EX01_FORM_HPP
+#ifndef EX02_FORM_HPP
+#define EX02_FORM_HPP
 
 #include "Bureaucrat.hpp"
 
@@ -100,4 +100,4 @@ private:
 
 std::ostream &operator<<(std::ostream &ostream, const Form &form);
 
-#endif //EX01_FORM_HPP
+#endif //EX02_FORM_HPP

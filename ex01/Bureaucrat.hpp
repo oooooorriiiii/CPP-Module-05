@@ -2,8 +2,8 @@
 // Created by yuumo on 2022/08/03.
 //
 
-#ifndef EX00_BUREAUCRAT_HPP
-#define EX00_BUREAUCRAT_HPP
+#ifndef EX01_BUREAUCRAT_HPP
+#define EX01_BUREAUCRAT_HPP
 
 #include <iostream>
 
@@ -56,4 +56,4 @@ private:
 
 std::ostream& operator<<(std::ostream& ostream, const Bureaucrat& bureaucrat);
 
-#endif //EX00_BUREAUCRAT_HPP
+#endif //EX01_BUREAUCRAT_HPP
