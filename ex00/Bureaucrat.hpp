@@ -21,6 +21,9 @@ public:
 	void incrementGrade();
 	void decrementGrade();
 
+    static const unsigned int khighestGrade = 1;
+    static const unsigned int klowestGrade = 150;
+
 class GradeTooHighException : public std::exception{
 public:
 	GradeTooHighException();
