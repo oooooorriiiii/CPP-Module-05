@@ -5,7 +5,7 @@
 #include "Form.hpp"
 
 Form::Form() : _name("no"), _signed(false), _signGrade(1), _executeGrade(1) {
-	std::cout << "<Default constructor is called in Form>" << std::endl;
+//	std::cout << "<Default constructor is called in Form>" << std::endl;
 }
 
 
@@ -13,7 +13,7 @@ Form::Form(const std::string &name, unsigned int signGrade,
 		   unsigned int executeGrade) : _name(name), _signed(false),
 										_signGrade(signGrade),
 										_executeGrade(executeGrade) {
-	std::cout << "<Constructor is called in Form>" << std::endl;
+//	std::cout << "<Constructor is called in Form>" << std::endl;
 	if (signGrade > 150 || executeGrade > 150)
 	{
 		throw GradeTooLowException();
@@ -25,12 +25,12 @@ Form::Form(const std::string &name, unsigned int signGrade,
 
 Form::Form(const Form &form) : _signed(), _signGrade(form.getSignGrade()),
 							   _executeGrade(form.getExecuteGrade()) {
-	std::cout << "<Copy constructor is called in Form>" << std::endl;
+//	std::cout << "<Copy constructor is called in Form>" << std::endl;
 	*this = form;
 }
 
 Form::~Form() {
-	std::cout << "<Destructor is called in Form>" << std::endl;
+//	std::cout << "<Destructor is called in Form>" << std::endl;
 }
 
 Form &Form::operator=(const Form &form) {
@@ -74,8 +74,7 @@ void Form::beSighed(const Bureaucrat &bureaucrat) {
 	_signed = true;
 }
 
-void Form::execute(
-		const Bureaucrat &executor) const throw(Form::GradeTooLowException, Form::GradeTooHighException, Form::NotSignedException) {
+void Form::execute(const Bureaucrat &executor) const {
 	try
 	{
 //		Debug
@@ -100,14 +99,14 @@ void Form::execute(
 
 Form::GradeTooHighException::GradeTooHighException() : _errorMessage(
 		"Grade is too high") {
-	std::cout
-			<< "<Default constructor is called in GradeTooHighException in Form>"
-			<< std::endl;
+//	std::cout
+//			<< "<Default constructor is called in GradeTooHighException in Form>"
+//			<< std::endl;
 }
 
 Form::GradeTooHighException::~GradeTooHighException() throw() {
-	std::cout << "<Destructor is called in GradeTooHighException in Form>"
-			  << std::endl;
+//	std::cout << "<Destructor is called in GradeTooHighException in Form>"
+//			  << std::endl;
 }
 
 const char *Form::GradeTooHighException::what() const throw() {
@@ -121,13 +120,13 @@ const char *Form::GradeTooHighException::what() const throw() {
 
 Form::GradeTooLowException::GradeTooLowException() : _errorMessage(
 		"Grade is too low") {
-	std::cout << "<Default constructor is called in GradeTooLowException in Form>"
-			  << std::endl;
+//	std::cout << "<Default constructor is called in GradeTooLowException in Form>"
+//			  << std::endl;
 }
 
 Form::GradeTooLowException::~GradeTooLowException() throw() {
-	std::cout << "<Destructor is called in GradeTooLowException in Form>"
-			  << std::endl;
+//	std::cout << "<Destructor is called in GradeTooLowException in Form>"
+//			  << std::endl;
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
@@ -141,8 +140,8 @@ const char *Form::GradeTooLowException::what() const throw() {
 
 Form::NotSignedException::NotSignedException() : _errorMessage(
 		"Form is not signed") {
-	std::cout << "<Default constructor is called in NotSignedException in Form>"
-			  << std::endl;
+//	std::cout << "<Default constructor is called in NotSignedException in Form>"
+//			  << std::endl;
 }
 
 Form::NotSignedException::~NotSignedException() throw() {
