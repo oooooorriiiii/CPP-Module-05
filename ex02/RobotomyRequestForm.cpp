@@ -6,21 +6,21 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() {
-  std::cout << "<Default constructor is called in RobotomyRequestForm>"
-            << std::endl;
+//  std::cout << "<Default constructor is called in RobotomyRequestForm>"
+//            << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : Form(
     target + "_form", kGradeRequiredToSign, kGradeRequiredToExecute),
                                                                       _target(
                                                                           target) {
-  std::cout << "<Constructor is called in RobotomyRequestForm>" << std::endl;
+//  std::cout << "<Constructor is called in RobotomyRequestForm>" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rrf) : Form(
     rrf) {
-  std::cout << "<Copy constructor is called in RobotomyRequestForm>"
-            << std::endl;
+//  std::cout << "<Copy constructor is called in RobotomyRequestForm>"
+//            << std::endl;
   *this = rrf;
 }
 
@@ -32,7 +32,7 @@ RobotomyRequestForm::operator=(const RobotomyRequestForm &rrf) {
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {
-  std::cout << "<Destructor is called in RobotomyRequestForm>" << std::endl;
+//  std::cout << "<Destructor is called in RobotomyRequestForm>" << std::endl;
 }
 
 /*

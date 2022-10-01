@@ -32,7 +32,7 @@ class Form {
    */
 
   void beSighed(const Bureaucrat &bureaucrat);
-  virtual void execute(Bureaucrat const &executor) const throw(Form::GradeTooLowException, Form::GradeTooHighException, Form::NotSignedException);
+  virtual void execute(Bureaucrat const &executor) const;
 
   /*
    *
