@@ -4,9 +4,6 @@
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
 int main() {
@@ -69,6 +66,7 @@ int main() {
   }
   {
     std::cout << "TEST: ERROR****************" << std::endl;
+    std::cout << "**" << "Other work" << "**" << std::endl;
 
     Bureaucrat boss04("KISHIDA", 1);
     Intern intern04;
@@ -87,7 +85,29 @@ int main() {
     catch (std::exception &e) {
       std::cerr << "Error: " << e.what() << std::endl;
     }
-    delete form04;
+  }
+  {
+    std::cout << "TEST: ERROR****************" << std::endl;
+    std::cout << "**" << "Low grade" << "**" << std::endl;
+
+    Bureaucrat boss("KISHIDA", 120);
+    Intern intern;
+
+    Form *form;
+    try {
+      form = intern.makeForm("presidential pardon", "Bender");
+      if (!form)
+        std::cout << "Don't exist this work" << std::endl;
+      else {
+        std::cout << *form;
+        boss.signForm(*form);
+        boss.executeForm(*form);
+      }
+    }
+    catch (std::exception &e) {
+      std::cerr << "Error: " << e.what() << std::endl;
+    }
+    delete form;
   }
 
 	return 0;
