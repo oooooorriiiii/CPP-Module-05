@@ -145,8 +145,8 @@ Form::NotSignedException::NotSignedException() : _errorMessage(
 }
 
 Form::NotSignedException::~NotSignedException() throw() {
-	std::cout << "<Destructor is called in NotSignedException in Form>"
-			  << std::endl;
+//	std::cout << "<Destructor is called in NotSignedException in Form>"
+//			  << std::endl;
 }
 
 const char *Form::NotSignedException::what() const throw() {

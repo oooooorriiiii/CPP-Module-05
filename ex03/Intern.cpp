@@ -44,11 +44,14 @@ Form*	Intern::makeForm(const std::string &name,
 	switch (i)
 	{
 		case 0:
-			return new ShrubberyCreationForm(target);
+          std::cout << "Intern creates " << name << "." << std::endl;
+		  return new ShrubberyCreationForm(target);
 		case 1:
-			return new RobotomyRequestForm(target);
+          std::cout << "Intern creates " << name << "." << std::endl;
+		  return new RobotomyRequestForm(target);
 		case 2:
-			return new PresidentialPardonForm(target);
+          std::cout << "Intern creates " << name << "." << std::endl;
+		  return new PresidentialPardonForm(target);
 		default:
 			std::cout << "My head is broken... There was no such application item... ERROR" << std::endl;
 			return NULL;
